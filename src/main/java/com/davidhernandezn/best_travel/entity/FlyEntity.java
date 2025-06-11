@@ -13,7 +13,11 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id; 
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor; 
 
 /*INTERFAZ SERIELIZABLE
  * todo objeto puede ser serializado en la red, se puede comvertir en bytes y transmitilor por http o bd (OPCIONAL LAS NUEVAS VERSIONES YA LO HACEN)
@@ -22,6 +26,10 @@ import jakarta.persistence.Id;
  * */
 
 @Entity(name="fly")
+@NoArgsConstructor //Constructor Vacio  
+@AllArgsConstructor //Solicitado por Builder
+@Data //get, set, toString, equals
+@Builder //evita tener sobrecarga de constructores
 public class FlyEntity implements Serializable {
 	
 	@Id
